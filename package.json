@@ -4,9 +4,6 @@
   "description": "CLI tool to quickly setup TSExpress Starter.",
   "main": "dist/cli.js",
   "types": "dist/cli.d.ts",
-  "scripts": {
-    "test": "ava"
-  },
   "keywords": [
     "create-app",
     "tsexpress-starter",
@@ -14,8 +11,15 @@
   ],
   "author": "Dukagjin Surdulli <me@dukagj.in> (https://dukagj.in/)",
   "license": "MIT",
+  "scripts": {
+    "dev": "tsc -w src/",
+    "build": "rimraf dist && yarn lint && tsc",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "test": "cross-env NODE_ENV=test tsc && ava"
+  },
   "devDependencies": {
     "@types/node": "^12.7.1",
+    "cross-env": "^5.2.0",
     "ts-node": "^8.3.0",
     "tslint": "^5.18.0",
     "typescript": "^3.5.3"
