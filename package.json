@@ -11,14 +11,31 @@
   ],
   "author": "Dukagjin Surdulli <me@dukagj.in> (https://dukagj.in/)",
   "license": "MIT",
+  "bin": {
+    "@tsexpress-starter/cli": "dist/cli",
+    "tsexpress-starter": "dist/cli"
+  },
   "scripts": {
-    "dev": "tsc -w src/",
+    "dev": "tsc -w",
     "build": "rimraf dist && yarn lint && tsc",
     "lint": "tslint -p tsconfig.json -c tslint.json",
     "test": "cross-env NODE_ENV=test tsc && ava"
   },
+  "dependencies": {
+    "arg": "^4.1.1",
+    "chalk": "^2.4.2",
+    "clear": "^0.1.0",
+    "execa": "^2.0.3",
+    "inquirer": "^6.5.0",
+    "rimraf": "^2.6.3"
+  },
   "devDependencies": {
+    "@types/chalk": "^2.2.0",
+    "@types/clear": "^0.1.0",
+    "@types/execa": "^2.0.0",
+    "@types/inquirer": "^6.5.0",
     "@types/node": "^12.7.1",
+    "@types/rimraf": "^2.0.2",
     "cross-env": "^5.2.0",
     "ts-node": "^8.3.0",
     "tslint": "^5.18.0",
