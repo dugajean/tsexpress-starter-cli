@@ -2,11 +2,11 @@
   "compilerOptions": {
     "target": "es6",
     "baseUrl": ".",
-    "allowJs": true,
-    "sourceMap": true,
     "outDir": "./dist",
+    "declaration": true,
     "module": "commonjs",
     "noImplicitAny": true,
+    "inlineSourceMap": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
