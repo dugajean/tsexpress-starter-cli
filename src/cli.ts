@@ -1,50 +1,24 @@
 #!/usr/bin/env node
 
-import arg from 'arg';
-import clear from 'clear';
-import execa from 'execa';
-import rimraf from 'rimraf';
+import program from 'commander';
+import newCommand from './commands/newCommand';
+import makeDomainCommand from './commands/makeDomainCommand';
+import makeEntityCommand from './commands/makeEntityCommand';
 
-function parseArgumentsIntoOptions(rawArgs: string[]) {
-  const args = arg(
-    {
-      '--create': String,
-      '--add-domain': String
-    },
-    {
-      argv: rawArgs.slice(2)
-    }
-  );
+program
+  .version('0.1.0')
+  .command('new <name>')
+  .description('Scaffold a new TS Express project')
+  .action(newCommand);
 
-  return {
-    create: args['--create'] || '',
-    addDomain: args['--add-domain'] || ''
-  };
-}
+program
+  .command('make:domain <name>')
+  .description("Creates a folder for your domain's logic within the app folder.")
+  .action(makeDomainCommand);
 
-let options;
+program
+  .command('make:entity <domain>')
+  .description('Creates an entity file within the designated domain.')
+  .action(makeEntityCommand);
 
-try {
-  options = parseArgumentsIntoOptions(process.argv);
-} catch (error) {
-  console.error('Provide a name for your argument.');
-  process.exit();
-}
-
-// console.log(options);
-// process.exit();
-
-if (options.create) {
-  clear();
-
-  (async () => {
-    try {
-      await execa('git', ['clone', 'https://github.com/dugajean/tsexpress-starter', options.create]);
-      await execa('cd', [options.create]);
-      rimraf.sync('.git');
-    } catch (error) {
-      console.log(error);
-      return console.error('There was a problem while cloning the starter repository.');
-    }
-  })();
-}
+program.parse(process.argv);
