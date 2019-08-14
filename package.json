@@ -1,6 +1,6 @@
 {
   "name": "@tsexpress-starter/cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI tool to quickly setup TSExpress Starter.",
   "main": "dist/cli.js",
   "types": "dist/cli.d.ts",
