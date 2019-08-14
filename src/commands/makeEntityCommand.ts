@@ -2,9 +2,8 @@ import { makeFiles, TemplateType } from '../utils';
 
 export default async function makeEntityCommand(entityName: string) {
   makeFiles({
-    type: 'entity',
+    scope: TemplateType.ENTITY,
     name: entityName,
-    template: TemplateType.ENTITY,
     success: `Successfully created ${entityName} entity.`,
     domainShouldExist: true
   });
