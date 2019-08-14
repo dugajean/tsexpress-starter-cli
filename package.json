@@ -10,12 +10,25 @@
     "cli"
   ],
   "author": "Dukagjin Surdulli <me@dukagj.in> (https://dukagj.in/)",
+  "homepage": "https://github.com/dugajean/tsexpress-starter-cli",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dugajean/tsexpress-starter-cli/issues",
+    "email": "me@dukagj.in"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dugajean/tsexpress-starter-cli/git"
+  },
+  "contributors": [
+    "Dukagjin Surdulli <me@dukagj.in> (https://dukagj.in/)"
+  ],
   "bin": {
     "@tsexpress-starter/cli": "dist/cli",
     "tsexpress-starter": "dist/cli"
   },
   "scripts": {
+    "prepublish": "yarn build",
     "dev": "tsc -w",
     "build": "rimraf dist && yarn lint && tsc",
     "lint": "tslint -p tsconfig.json -c tslint.json",
