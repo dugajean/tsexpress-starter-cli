@@ -24,8 +24,8 @@
     "Dukagjin Surdulli <me@dukagj.in> (https://dukagj.in/)"
   ],
   "bin": {
-    "@tsexpress-starter/cli": "dist/cli",
-    "tsexpress-starter": "dist/cli"
+    "@tsexpress-starter/cli": "dist/cli.js",
+    "tsexpress-starter": "dist/cli.js"
   },
   "scripts": {
     "prepublish": "yarn build",
