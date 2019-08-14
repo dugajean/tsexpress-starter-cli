@@ -4,7 +4,7 @@ export default async function makeEntityCommand(entityName: string) {
   makeFiles({
     scope: TemplateType.ENTITY,
     name: entityName,
-    success: `Successfully created ${entityName} entity.`,
-    domainShouldExist: true
+    domainShouldExist: true,
+    success: `Successfully created ${entityName} entity.`
   });
 }

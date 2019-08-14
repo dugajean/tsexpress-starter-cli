@@ -6,7 +6,11 @@ import makeDomainCommand from './commands/makeDomainCommand';
 import makeEntityCommand from './commands/makeEntityCommand';
 
 program
-  .version('0.1.0')
+  .name('TSExpress Starter CLI')
+  .description('Simple CLI to generate a TypeScript and Express application and more.')
+  .version('0.1.0');
+
+program
   .command('new <name>')
   .description('Scaffold a new TS Express project')
   .action(newCommand);
@@ -22,3 +26,7 @@ program
   .action(makeEntityCommand);
 
 program.parse(process.argv);
+
+if (!process.argv.slice(2).length) {
+  program.outputHelp();
+}
